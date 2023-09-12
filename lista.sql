@@ -67,3 +67,5 @@ WHERE Numero_de_Livros = (
     SELECT MAX(Numero_de_Livros)
     FROM contagemlivros
 );
+
+SELECT produto AS Produto, SUM(receita) AS Receita_Total FROM vendas GROUP BY produto ORDER BY Receita_Total ASC LIMIT 1;
