@@ -23,3 +23,9 @@ INNER JOIN alunos ON matriculas.aluno_id = alunos.id
 GROUP BY matriculas.curso;
 
 SELECT produto AS Produto, AVG(receita) AS Media_de_Receita FROM vendas GROUP BY produto;
+
+SELECT produto AS Produto, SUM(receita) AS Receita_Total
+FROM vendas
+GROUP BY produto
+HAVING Receita_Total > 10000;
+
