@@ -8,3 +8,6 @@ SELECT alunos.nome AS Nome_Aluno
 FROM alunos
 INNER JOIN matriculas ON alunos.id = matriculas.aluno_id
 WHERE curso = 'Engenharia de Software';
+
+SELECT produto, SUM(receita) AS Receita_Total FROM vendas 
+GROUP BY produto;
