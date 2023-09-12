@@ -69,3 +69,8 @@ WHERE Numero_de_Livros = (
 );
 
 SELECT produto AS Produto, SUM(receita) AS Receita_Total FROM vendas GROUP BY produto ORDER BY Receita_Total ASC LIMIT 1;
+
+SELECT alunos.nome AS Nome_Aluno, COUNT(matriculas.curso) AS Numero_de_Matriculas
+FROM alunos
+INNER JOIN matriculas ON alunos.id = matriculas.aluno_id
+GROUP BY alunos.nome;
