@@ -35,3 +35,7 @@ LEFT JOIN livros ON autores.id = livros.autor_id
 GROUP BY autores.nome
 HAVING Numero_de_Livros > 2;
 
+SELECT livros.titulo AS Titulo_do_Livro, autores.nome AS Nome_Autor
+FROM livros
+INNER JOIN autores ON livros.autor_id = autores.id;
+
