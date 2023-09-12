@@ -16,3 +16,8 @@ SELECT autores.nome AS Nome_Autor, COUNT(livros.id) AS Numero_de_Livros
 FROM autores
 LEFT JOIN livros ON autores.id = livros.autor_id
 GROUP BY autores.nome;
+
+SELECT matriculas.curso AS Curso, COUNT(alunos.nome) AS Numero_de_Alunos
+FROM matriculas
+INNER JOIN alunos ON matriculas.aluno_id = alunos.id
+GROUP BY matriculas.curso;
