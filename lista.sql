@@ -55,3 +55,15 @@ SELECT alunos.nome AS NomeAluno, matriculas.curso AS Curso
 FROM alunos
 INNER JOIN matriculas ON alunos.id = matriculas.aluno_id;
 
+WITH contagemlivros AS (
+    SELECT autor_id, COUNT(*) AS Numero_de_Livros
+    FROM livros
+    GROUP BY autor_id
+)
+SELECT autores.nome AS Nome_Autor, Numero_de_Livros AS Maior_Numero_de_Livros
+FROM contagemlivros
+JOIN autores ON contagemlivros.autor_id = autores.id
+WHERE Numero_de_Livros = (
+    SELECT MAX(Numero_de_Livros)
+    FROM contagemlivros
+);
