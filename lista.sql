@@ -74,3 +74,10 @@ SELECT alunos.nome AS Nome_Aluno, COUNT(matriculas.curso) AS Numero_de_Matricula
 FROM alunos
 INNER JOIN matriculas ON alunos.id = matriculas.aluno_id
 GROUP BY alunos.nome;
+
+WITH numero_de_produtos AS (
+    SELECT produto, COUNT(*) AS Numero
+    FROM vendas
+    GROUP BY produto
+)
+SELECT produto AS Produto, Numero FROM numero_de_produtos WHERE Numero = (SELECT MAX(Numero) FROM numero_de_produtos);
